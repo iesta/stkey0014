@@ -40,9 +40,9 @@ for(let i = 0; i < res.length; i++){
 
     decryptedHMAC = CryptoJS.HmacSHA256(encryptedHTML, CryptoJS.SHA256(res[i].join("")).toString()).toString();
     if (decryptedHMAC !== encryptedHMAC) {
-        console.log(`#${i}`, "Negative: ", res[i].join("") );
+        console.log(`#${i}/${tot}`, "Negative: ", res[i].join("") );
     } else {
-        console.log(`#${i}`, "Positive: ", res[i].join(""));
+        console.log(`#${i}/${tot}`, "Positive: ", res[i].join(""));
         console.log("---",);
         const plainHTML = CryptoJS.AES.decrypt(encryptedHTML, res[i].join("")).toString(CryptoJS.enc.Utf8);
         console.log(plainHTML);
