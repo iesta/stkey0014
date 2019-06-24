@@ -40,7 +40,10 @@ for(let i = 0; i < res.length; i++){
 
     decryptedHMAC = CryptoJS.HmacSHA256(encryptedHTML, CryptoJS.SHA256(res[i].join("")).toString()).toString();
     if (decryptedHMAC !== encryptedHMAC) {
-        console.log(`#${i}/${tot}`, "Negative: ", res[i].join("") );
+        // console.log(`#${i}/${tot}`, "Negative: ", res[i].join("") );
+        if(i%5000==0) {
+            console.log("Tested ",i," negative keys");
+        }
     } else {
         console.log(`#${i}/${tot}`, "Positive: ", res[i].join(""));
         console.log("---",);
